@@ -38,10 +38,22 @@ final class File
     }
 
     /**
-     * @param string $path
+     * @param string[] $paths
      */
-    public static function requireOnce(string $path): void
+    public static function requireOnce(string ...$paths): void
     {
-        SplFileRequirer::fromPath($path)->requireOnce();
+        foreach ($paths as $path) {
+            SplFileRequirer::fromPath($path)->requireOnce();
+        }
+    }
+
+    /**
+     * @param string[] $paths
+     */
+    public static function includeOnce(string ...$paths): void
+    {
+        foreach ($paths as $path) {
+            SplFileIncluder::fromPath($path)->includeOnce();
+        }
     }
 }

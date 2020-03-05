@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-namespace Tests\Shrikeh\File;
+namespace Tests\Shrikeh\File\Requirer;
 
 use PHPUnit\Framework\TestCase;
 use Shrikeh\File\File\SplFileRequirer;

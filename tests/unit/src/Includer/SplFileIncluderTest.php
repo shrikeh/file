@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-namespace Tests\Shrikeh\File;
+namespace Tests\Shrikeh\File\Includer;
 
 use PHPUnit\Framework\TestCase;
 use Shrikeh\File\Includer\SplFileIncluder;
@@ -31,10 +31,12 @@ final class SplFileIncluderTest extends TestCase
 
     public function testItIncludesOnlyOnce(): void
     {
-        $requireOnce = Constants::fixturesDir() . '/require_once.php';
+        $this->assertFalse(class_exists('Bar'));
+
+        $requireOnce = Constants::fixturesDir() . '/include_once.php';
         $file = SplFileIncluder::fromPath($requireOnce);
         $file->includeOnce();
 
-        $this->assertTrue(class_exists('Foo'));
+        $this->assertTrue(class_exists('Bar'));
     }
 }
