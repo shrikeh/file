@@ -10,10 +10,8 @@
  */
 declare(strict_types=1);
 
-namespace Shrikeh\File\File;
+namespace Shrikeh\File\Requirer;
 
-use Closure;
-use Shrikeh\File\Requirer\RequirerInterface;
 use Shrikeh\File\Traits\SplFileInfoTrait;
 
 final class SplFileRequirer implements RequirerInterface

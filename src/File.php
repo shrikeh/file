@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Shrikeh\File;
 
-use Shrikeh\File\File\SplFileRequirer;
+use Shrikeh\File\Requirer\SplFileRequirer;
 use Shrikeh\File\Includer\SplFileIncluder;
 
 final class File
