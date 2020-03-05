@@ -1,0 +1,5 @@
+{
+  "report-html": "build/metrics",
+  "junit": "build/coverage/phpunit/junit.xml",
+  "exclude": "tests/fixtures"
+}

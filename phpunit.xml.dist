@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         backupGlobals="false"
+         executionOrder="random"
+         resolveDependencies="true"
+         beStrictAboutOutputDuringTests="true"
+         bootstrap="tests/unit/bootstrap.php"
+         colors="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         verbose="true"
+>
+    <php>
+      <ini name="error_reporting" value="2147483647"/>
+      <ini name="display_errors" value="1"/>
+      <server name="APP_ENV" value="test" />
+      <server name="APP_DEBUG" value="0" />
+    </php>
+    <logging>
+        <log type="coverage-html" target="./build/coverage/html" />
+        <log type="coverage-xml" target="./build/coverage/coverage-xml" />
+        <log type="coverage-clover" target="./build/coverage/clover.xml" />
+        <log type="junit" target="./build/coverage/junit.xml" />
+        <log type="coverage-php" target="./build/coverage/phpunit.phpcoverage" />
+    </logging>
+    <testsuites>
+      <testsuite name="File Unit Tests">
+        <directory>./tests/unit/src</directory>
+      </testsuite>
+    </testsuites>
+    <filter>
+      <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">./src</directory>
+      </whitelist>
+    </filter>
+</phpunit>

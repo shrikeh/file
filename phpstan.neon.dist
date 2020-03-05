@@ -1,0 +1,11 @@
+parameters:
+  paths:
+    - src
+    - tests
+  level: 5
+  fileExtensions:
+    - php
+  excludes_analyse:
+    - tests/*/bootstrap.php
+    - tests/unit/xdebug-filter.php
+    - tests/fixtures
