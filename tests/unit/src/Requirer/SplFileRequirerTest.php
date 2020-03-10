@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Tests\Shrikeh\File\Requirer;
 
 use PHPUnit\Framework\TestCase;
-use Shrikeh\File\File\SplFileRequirer;
+use Shrikeh\File\Requirer\SplFileRequirer;
 use Tests\Shrikeh\Constants;
 
 final class SplFileRequirerTest extends TestCase

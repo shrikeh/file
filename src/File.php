@@ -38,7 +38,7 @@ final class File
     }
 
     /**
-     * @param string[] $paths
+     * @param string ...$paths
      */
     public static function requireOnce(string ...$paths): void
     {

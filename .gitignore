@@ -1,0 +1,5 @@
+*.iml
+/vendor/
+composer.lock
+.*
+!.gitignore

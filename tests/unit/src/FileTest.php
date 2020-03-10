@@ -12,8 +12,10 @@ declare(strict_types=1);
 
 namespace Tests\Shrikeh\File;
 
+use DirectoryIterator;
 use PHPUnit\Framework\TestCase;
 use Shrikeh\File\File;
+use SplFileInfo;
 use Tests\Shrikeh\Constants;
 
 final class FileTest extends TestCase
@@ -34,5 +36,25 @@ final class FileTest extends TestCase
         $expected = include $include;
 
         $this->assertSame($expected, $contents);
+    }
+
+    public function testRequireOnces(): void
+    {
+        $requireOnceDir = new DirectoryIterator(Constants::fixturesDir() . '/require_once');
+
+        $requireOncedFiles = [];
+
+        /** @var SplFileInfo $requireOnce */
+        foreach ($requireOnceDir as $requireOnce) {
+            if (!$requireOnce->isDot()) {
+                $requireOncedFiles[] = $requireOnce->getRealPath();
+            }
+        }
+
+        File::requireOnce(...$requireOncedFiles);
+
+        $this->assertTrue(defined('REQUIRED_ONCE_1'));
+        $this->assertTrue(defined('REQUIRED_ONCE_2'));
+        $this->assertTrue(defined('REQUIRED_ONCE_3'));
     }
 }
