@@ -70,7 +70,7 @@ final class FileTest extends TestCase
             }
         }
 
-        File::requireOnce(...$includeOncedFiles);
+        File::includeOnce(...$includeOncedFiles);
 
         $this->assertTrue(defined('INCLUDED_ONCE_1'));
         $this->assertTrue(defined('INCLUDED_ONCE_2'));
