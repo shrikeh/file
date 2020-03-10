@@ -57,4 +57,23 @@ final class FileTest extends TestCase
         $this->assertTrue(defined('REQUIRED_ONCE_2'));
         $this->assertTrue(defined('REQUIRED_ONCE_3'));
     }
+
+    public function testIncludeOnces(): void
+    {
+        $includeOnceDir = new DirectoryIterator(Constants::fixturesDir() . '/include_once');
+        $includeOncedFiles = [];
+
+        /** @var SplFileInfo $includeOnce */
+        foreach ($includeOnceDir as $includeOnce) {
+            if (!$includeOnce->isDot()) {
+                $includeOncedFiles[] = $includeOnce->getRealPath();
+            }
+        }
+
+        File::requireOnce(...$includeOncedFiles);
+
+        $this->assertTrue(defined('INCLUDED_ONCE_1'));
+        $this->assertTrue(defined('INCLUDED_ONCE_2'));
+        $this->assertTrue(defined('INCLUDED_ONCE_3'));
+    }
 }

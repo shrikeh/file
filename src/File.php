@@ -48,7 +48,7 @@ final class File
     }
 
     /**
-     * @param string[] $paths
+     * @param string ...$paths
      */
     public static function includeOnce(string ...$paths): void
     {
